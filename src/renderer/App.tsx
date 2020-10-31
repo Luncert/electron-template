@@ -6,6 +6,9 @@ import Container from './lib/Container';
 import Header from './lib/Header';
 import Button from './lib/components/Button';
 import Progress from './lib/components/Progress';
+import Divider from './lib/components/Divider';
+import Modal from './lib/components/Modal';
+// import './lib/components/common.css?global'
 
 const styles =  require('./App.css') as any;
 
@@ -44,6 +47,14 @@ class App extends Component<any, AppState> {
               <Button>Dark Duck</Button>
             </div>
             <Progress value={100} />
+            <Divider />
+            <Modal>
+              <Modal.Header>Profile Picture</Modal.Header>
+              <Modal.Actions>
+                <Button>Cancel</Button>
+                <Button>Proceed</Button>
+              </Modal.Actions>
+            </Modal>
           </Container>
         </div>
     )
