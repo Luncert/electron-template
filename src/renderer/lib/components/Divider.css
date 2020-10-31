@@ -1,12 +1,12 @@
 .root {
   background-color: white;
-  margin: calc(0.5em - 1px) 1em;
-  width: calc(100% - 2em);
+  margin: calc(0.5em - 1px) 0.5em;
+  width: calc(100% - 1em);
   height: 2px;
 }
 
 .root.vertical {
-  margin: 1em calc(0.5em - 1px);
+  margin: 0.5em calc(0.5em - 1px);
   width: 2px;
-  height: calc(100% - 2em);
+  height: calc(100% - 1em);
 }

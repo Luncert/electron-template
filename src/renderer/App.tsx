@@ -8,6 +8,9 @@ import Button from './lib/components/Button';
 import Progress from './lib/components/Progress';
 import Divider from './lib/components/Divider';
 import Modal from './lib/components/Modal';
+import Input from './lib/components/Input';
+import Label from './lib/components/Label';
+import List from './lib/components/List';
 // import './lib/components/common.css?global'
 
 const styles =  require('./App.css') as any;
@@ -46,15 +49,24 @@ class App extends Component<any, AppState> {
               <Button>Fortify</Button>
               <Button>Dark Duck</Button>
             </div>
-            <Progress value={100} />
             <Divider />
-            <Modal>
+            <Progress value={100} />
+            {/* <Modal>
               <Modal.Header>Profile Picture</Modal.Header>
               <Modal.Actions>
                 <Button>Cancel</Button>
                 <Button>Proceed</Button>
               </Modal.Actions>
-            </Modal>
+            </Modal> */}
+            <Label>Name:</Label>
+            <Input />
+            <Label>Age:</Label>
+            <Input />
+            <List>
+              <List.Item>Apples</List.Item>
+              <List.Item>Pears</List.Item>
+              <List.Item>Oranges</List.Item>
+            </List>
           </Container>
         </div>
     )

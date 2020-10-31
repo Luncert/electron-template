@@ -23,7 +23,7 @@ export default class Progress extends Component<ProgressProps> {
 
     return (
       <div className={styles.root} style={this.props.style}>
-        <div className={styles.bar} style={{width: `calc(${this.props.value}% - 5.5em)`, backgroundColor: this.props.color}}></div>
+        <div className={styles.bar} style={{width: `calc(${this.props.value}% - 4.5em)`, backgroundColor: this.props.color}}></div>
         <div className={styles.value} style={{color: this.props.color}}>{this.props.value}</div>
       </div>
     )
