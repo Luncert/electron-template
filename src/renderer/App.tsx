@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import TextLogo from './lib/components/TextLogo';
+import Avatar from './components/Avatar';
+import Container from './lib/Container';
 import Header from './lib/Header';
+import Button from './lib/components/Button';
+import Progress from './lib/components/Progress';
 
 const styles =  require('./App.css') as any;
 
@@ -9,24 +14,37 @@ interface AppState {
 
 class App extends Component<any, AppState> {
   
-  // private term: Xterm
-
   constructor(props: any) {
     super(props);
     this.state = {
     }
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
   render() {
     return (
         <div className={styles.app}>
-          <Header />
+          <Header title='Template' subTitle='Loading configuration ...' />
+          <Container>
+            <div className={styles.header}>
+              <TextLogo color='red' logo='
+ ██████╗        █████╗ ██╗     ██╗
+██╔════╝       ██╔══██╗██║     ██║
+██║      ███╗  ███████║██║     ██║
+██║      ╚══╝  ██╔══██║██║     ██║     
+╚██████╗       ██║  ██║███████╗███████╗
+ ╚═════╝       ╚═╝  ╚═╝╚══════╝╚══════╝' />
+              <Avatar src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1194131577,2954769920&fm=26&gp=0.jpg" />
+            </div>
+            <div className={styles.menu}>
+              <Button>Settings</Button>
+              <Button>Jenkins</Button>
+              <Button>Themisto</Button>
+              <Button>Business Log</Button>
+              <Button>Fortify</Button>
+              <Button>Dark Duck</Button>
+            </div>
+            <Progress value={100} />
+          </Container>
         </div>
     )
   }

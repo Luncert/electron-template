@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import { names } from './util';
 import { ipcRenderer } from 'electron';
 import { Channels, WINDOW_STATE } from '../../common/Constants';
+import anime from 'animejs'
 
-const anime = require('animejs') as any
 const styles = require('./Header.css') as any
 const iconStyles = require('./assets/icon/iconfont.css') as any
+
+interface HeaderProps {
+  title: string
+  subTitle: string
+}
 
 interface State {
   windowState: number
 }
 
-export default class Header extends Component<any, State> {
+export default class Header extends Component<HeaderProps, State> {
 
   private btnGroupRef: React.RefObject<HTMLDivElement>
 
-  constructor(props: any) {
+  constructor(props: HeaderProps) {
     super(props)
     this.state = {
       windowState: this.fetchWindowState()
@@ -50,8 +55,8 @@ export default class Header extends Component<any, State> {
     return (
       <div className={styles.root}>
         <div className={styles.textGroup}>
-          <span className={styles.title}></span>
-          <span className={styles.subTitle}></span>
+          <span className={styles.title}>{this.props.title}</span>
+          <span className={styles.subTitle}>{this.props.subTitle}</span>
         </div>
         <div ref={this.btnGroupRef} className={styles.windowControlGroup}>
           <div className={names(styles.btn, styles.btnMinimize)}

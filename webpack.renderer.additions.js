@@ -30,9 +30,9 @@ module.exports = {
         }]
       },
       {
-        test: /\.(png|ttf|otf|eot|woff|woff2|svg|mp3)$/,
+        test: /\.(png|jpg|svg|ttf|otf|eot|woff|woff2|mp3)$/,
         loader: 'file-loader'
-      },
+      }
     ]
   }
 }
