@@ -1,7 +1,7 @@
 import { app, BrowserWindow, Menu, ipcMain, Tray } from 'electron'
 import { Channels, WINDOW_STATE } from '../common/Constants'
-import * as path from 'path'
-import * as url from 'url'
+import path from 'path'
+import url from 'url'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -79,32 +79,32 @@ function createWindow() {
 }
 
 function setupMessageChannels() {
-  ipcMain.on(Channels.DoLog, (event, ...args) => {
+  ipcMain.on(Channels.Base.Log, (event, ...args) => {
     console.log(args)
   })
   // listen window control event
-  ipcMain.on(Channels.FetchWindowState, (event) => {
+  ipcMain.on(Channels.WindowAction.FetchWindowState, (event) => {
     event.returnValue = fetchWindowState();
   })
-  ipcMain.on(Channels.MinimizeWindow, (event) => {
-      if (mainWindow.minimizable) {
-        mainWindow.minimize()
-      }
-      event.returnValue = fetchWindowState()
+  ipcMain.on(Channels.WindowAction.MinimizeWindow, (event) => {
+    if (mainWindow.minimizable) {
+      mainWindow.minimize()
+    }
+    event.returnValue = fetchWindowState()
   })
-  ipcMain.on(Channels.MaximizeWindow, (event) => {
-      if (mainWindow.maximizable) {
-        mainWindow.maximize()
-      }
-      event.returnValue = fetchWindowState()
+  ipcMain.on(Channels.WindowAction.MaximizeWindow, (event) => {
+    if (mainWindow.maximizable) {
+      mainWindow.maximize()
+    }
+    event.returnValue = fetchWindowState()
   })
-  ipcMain.on(Channels.UnmaximizeWindow, (event) => {
-      mainWindow.unmaximize();
-      event.returnValue = fetchWindowState()
+  ipcMain.on(Channels.WindowAction.UnmaximizeWindow, (event) => {
+    mainWindow.unmaximize();
+    event.returnValue = fetchWindowState()
   })
-  ipcMain.on(Channels.CloseWindow, (event) => {
-      mainWindow.close()
-      event.returnValue = WINDOW_STATE.HIDDEN
+  ipcMain.on(Channels.WindowAction.CloseWindow, (event) => {
+    mainWindow.close()
+    event.returnValue = WINDOW_STATE.HIDDEN
   })
   
   // listener window event

@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "rebuild-node-pty": "electron-rebuild -f -w node_modules/node-pty -m ./",
-    "postinstall": "electron-builder install-app-deps && npm run rebuild-node-pty",
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
@@ -25,6 +23,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@types/animejs": "^3.1.4",
     "@types/electron-devtools-installer": "^2.2.0",
     "@types/node": "^12.0.2",
     "@types/react": "^16.8.17",
@@ -49,6 +48,7 @@
     "tslint": "^5.16.0",
     "typescript": "^3.4.5",
     "url-loader": "^4.1.1",
+    "url-parse": "^1.5.3",
     "uuid": "^8.3.0",
     "webpack": "~4.42.1"
   }
